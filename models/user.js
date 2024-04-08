@@ -1,0 +1,36 @@
+/**
+ * Module dependencies.
+ */
+const mongoose = require('mongoose')
+
+/**
+ * Schema definition 
+ */
+const ModelSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        maxlength: 50
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: 6
+    },
+   
+    isAdmin: {
+        type: Boolean,
+        default: false
+    }
+}, {
+    timestamps: true
+})
+
+const Model = mongoose.model('User', ModelSchema)
+
+module.exports = Model
