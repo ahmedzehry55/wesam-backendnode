@@ -27,8 +27,8 @@ const admin = require('../middlewares/admin')
  * Routes.
  */
 router.post('/',  controller.create)
-router.put('/:id', [auth.check, admin.check], controller.update)
-router.delete('/:id', [auth.check, admin.check], controller.delete)
+router.put('/:id',  controller.update)
+router.delete('/:id',  controller.delete)
 
 router.get('/', controller.list)
 router.get('/:id', auth.check, controller.find)
